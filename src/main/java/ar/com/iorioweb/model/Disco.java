@@ -14,6 +14,7 @@ public class Disco {
     private String nombreDisco;
     private String listaTemas;
     private String imagenUrl;
+    private String anio;
     @ManyToOne
     @JoinColumn(name = "artista_id") 
     private Artista artista;

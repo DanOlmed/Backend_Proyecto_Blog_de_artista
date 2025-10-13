@@ -1,9 +1,9 @@
 package ar.com.iorioweb.repository;
+
+import ar.com.iorioweb.model.Biografia;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ar.com.iorioweb.model.Disco;
 
 @Repository
-public interface DiscoRepository extends JpaRepository<Disco,Long>{
-
+public interface BiografiaRepository extends JpaRepository<Biografia, Long> {
 }
