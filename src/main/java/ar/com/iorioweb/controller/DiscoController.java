@@ -1,24 +1,36 @@
 package ar.com.iorioweb.controller;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
 import ar.com.iorioweb.model.Disco;
-import ar.com.iorioweb.repository.DiscoRepository;
+import ar.com.iorioweb.service.DiscoService;
+import ar.com.iorioweb.dto.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/discos")
+@RestController // Indica que es un componente REST que maneja JSON
+@RequestMapping("/discos") // Prefijo base: http://localhost:8080/api/discos
 public class DiscoController {
-	 @Autowired
-	    private DiscoRepository discoRepository;
 
-	    @GetMapping
-	    public List<Disco> listar() {
-	        return discoRepository.findAll();
-	    }
+    @Autowired // Inyectamos la interfaz del Servicio
+    private DiscoService discoService;
 
-	    @PostMapping
-	    public Disco crear(@RequestBody Disco disco) {
-	        return discoRepository.save(disco);
-	    }
+    // ENDPOINT: GET /api/discos (Obtener todos los discos)
+    @GetMapping
+    public ResponseEntity<List<DiscoDto>> obtenerDiscos() {
+        List<DiscoDto> discos = discoService.obtenerTodosLosDiscos();
+        return ResponseEntity.ok(discos); // Devuelve HTTP 200 OK
+    }
 
+    // ENDPOINT: GET /api/discos/{id} (Obtener un disco por su ID)
+    @GetMapping("/{id}")
+    public ResponseEntity<DiscoDto> obtenerDiscoPorId(@PathVariable Long id) {
+        DiscoDto disco = discoService.obtenerDiscoPorId(id);
+        
+        if (disco != null) {
+            return ResponseEntity.ok(disco); // Devuelve 200 OK y el disco
+        } else {
+            return ResponseEntity.notFound().build(); // Devuelve 404 Not Found
+        }
+    }
 }

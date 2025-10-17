@@ -1,6 +1,7 @@
 package ar.com.iorioweb.model;
 import java.util.ArrayList;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -25,10 +26,12 @@ public class Artista {
 	private Biografia biografia;
 	@Builder.Default // Inicializa la lista por defecto
     @ToString.Exclude
+    @JsonManagedReference
 	@OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Disco> discos = new ArrayList<>();
 	@Builder.Default // Inicializa la lista por defecto
     @ToString.Exclude
+    @JsonManagedReference
 	@OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Video> videos = new ArrayList<>();
 	

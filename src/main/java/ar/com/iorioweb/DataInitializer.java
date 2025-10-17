@@ -353,22 +353,108 @@ public class DataInitializer implements CommandLineRunner{
             videoRepository.save(elPibeTigre);
             
             
-            //falta seguir cargando los videos
+            Video amistadesDeTierraAdentro = Video.builder()
+            		.titulo("Amistades de Tierra adentro-Almafuerte")
+            		.youtubeUrl("https://youtu.be/A_RBA3Ce7_I?si=CjA-4idAk74KuLwe")
+            		.descripcion("Tema correspondiente al disco del entorno")
+            		.artista(iorio)
+            		.disco(delEntorno)
+            		.build();
+            videoRepository.save(amistadesDeTierraAdentro);
+            
+            Video aVosAmigo = Video.builder()
+            		.titulo("A vos amigo-Almafuerte")
+            		.youtubeUrl("https://youtu.be/ItQoKaeohEI?si=cohLZGcGszs6ukHT")
+            		.descripcion("Tema correspondiente a la placa A fondo blanco")
+            		.artista(iorio)
+            		.disco(aFondoBlanco)
+            		.build();
+            
+            videoRepository.save(aVosAmigo);
+            
+            Video triunfo = Video.builder()
+            		.titulo("Triunfo-Almafuerte")
+            		.youtubeUrl("https://youtu.be/uIgAWaKAurg?si=RMdJg1dmw2U2zuVx")
+            		.descripcion("Tema del famoso disco de las cartas de almafuerte")
+            		.artista(iorio)
+            		.disco(almaFuerte)
+            		.build();
+            videoRepository.save(triunfo);
+            
+            Video justoQueTeVas = Video.builder()
+            		.titulo("Justo que te vas-Iorio")
+            		.youtubeUrl("https://youtu.be/KowXSi2ILRw?si=BYtxb84oAWUMGQjs")
+            		.descripcion("Tema solista de Iorio")
+            		.artista(iorio)
+            		.disco(atesorandoEnLosCielos)
+            		.build();
+            videoRepository.save(justoQueTeVas);
+            
+            Video himnoArgentino = Video.builder()
+            		.titulo("Himno Argentino")
+            		.youtubeUrl("https://youtu.be/08TNhQlTxhw?si=gnfTNQm7T8UllIjo")
+            		.descripcion("Himno Argentino interpretado por Ricardo Iorio, en lo que iba a ser su presentación en la previa de un partido de la selección, evento que finalmente no fue realizado")
+            		.artista(iorio)
+            		.disco(avivandoLaLlamaDeLaLeyNatural)
+            		.build();
+            videoRepository.save(himnoArgentino);
+            
+            Video entrevistaAtc = Video.builder()
+            		.titulo("Entrevista post hermética parte 1")
+            		.youtubeUrl("https://youtu.be/rSaQYGLyT00?si=4lgavH1jsunmIhzi")
+            		.descripcion("Entrevista post separacion de Hermetica, inicios de Almafuerte")
+            		.artista(iorio)
+            		.disco(mundoGuanaco)
+            		.build();
+            
+            videoRepository.save(entrevistaAtc);
+            
+            Video entrevistaRockPolitik = Video.builder()
+            		.titulo("Entrevista en Rock politico")
+            		.youtubeUrl("https://youtu.be/ta0oUQwHC0E?si=XpCZ3xRW2WBIe1r9")
+            		.descripcion("Entrevista donde queda inmortalizada la frase: generalmente hay que morirse para que te quieran ")
+            		.artista(iorio)
+            		.disco(mundoGuanaco)
+            		.build();
+            
+            videoRepository.save(entrevistaRockPolitik);
+            
+            Video short1 = Video.builder()
+            		.titulo("Si jesus...")
+            		.youtubeUrl("https://youtube.com/shorts/PnjVZfT31tw?si=5zOd6nfFvj_9524l")
+            		.descripcion("Video Short frases destacables parte 1")
+            		.artista(iorio)
+            		.disco(avivandoLaLlamaDeLaLeyNatural)
+            		.build();
+            
+            videoRepository.save(short1);
+            
+            Video short2 = Video.builder()
+            		.titulo("Si en 17 años un joven...")
+            		.youtubeUrl("https://youtube.com/shorts/AuV3zyHNyvQ?si=-NWC_rewFU9xZ6pG")
+            		.descripcion("Iorio en época de Hermética dando el fundamento y el porque de la banda")
+            		.artista(iorio)
+            		.disco(hermeticaInterpretes)
+            		.build();
+            
+            videoRepository.save(short2);
+            
+            Video short3 = Video.builder()
+            		.titulo("Ser un metalero pesado..")
+            		.youtubeUrl("https://youtube.com/shorts/XdPTwb_x_Ww?si=PCu8CRNrC5NnxOLP")
+            		.descripcion("Apreciación sobre qué es ser un metalero pesado")
+            		.artista(iorio)
+            		.disco(mundoGuanaco)
+            		.build();
+            videoRepository.save(short3);
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
+                 
             
 
             
-            // ... Repite este patrón para el resto de videos ...
+           
 
 
             System.out.println("-> Carga de datos inicial completa y exitosa.");
