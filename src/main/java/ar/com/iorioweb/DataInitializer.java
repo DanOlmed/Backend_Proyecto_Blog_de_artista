@@ -5,7 +5,7 @@ import ar.com.iorioweb.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import lombok.*;
+
 
 @Component //esto indica que springboot debe manejar esta clase
 
