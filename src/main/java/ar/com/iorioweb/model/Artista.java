@@ -1,13 +1,17 @@
 package ar.com.iorioweb.model;
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 import jakarta.persistence.*;
-import 	lombok.*;
+import lombok.*;
 
 @Entity
 @Data
+@Builder // <--- 1. Usar el patrón Builder
+@NoArgsConstructor // <--- 2. Necesario para JPA
+@AllArgsConstructor
 public class Artista {
 	
 	@Id
@@ -19,8 +23,12 @@ public class Artista {
 	private String fotoPerfilPrincipal;
 	@OneToOne(mappedBy = "artista", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Biografia biografia;
+	@Builder.Default // Inicializa la lista por defecto
+    @ToString.Exclude
 	@OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Disco> discos = new ArrayList<>();
+	@Builder.Default // Inicializa la lista por defecto
+    @ToString.Exclude
 	@OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Video> videos = new ArrayList<>();
 	

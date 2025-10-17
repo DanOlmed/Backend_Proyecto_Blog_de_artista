@@ -5,6 +5,9 @@ import lombok.*;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +22,6 @@ public class Video {
     @JoinColumn(name = "disco_id", nullable = true)
     private Disco disco;
     
-    // se puede agregar una imagen de miniatura si no la obtenemos de la API del video
-    private String thumbnailUrl; 
     @ManyToOne
     @JoinColumn(name = "artista_id") // Esta columna estará en la tabla Video
     private Artista artista;
