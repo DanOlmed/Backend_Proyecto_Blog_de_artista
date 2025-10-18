@@ -114,4 +114,21 @@ Contiene el contenido de texto largo sin datos adicionales.
   "nombreArtista": "Ricardo Horacio Iorio"
 }
 ```
+---
 
+## 4. DOCUMENTACIÓN GRÁFICA E INTERACTIVA (SWAGGER/OPENAPI)
+
+Para una visualización más detallada de los Endpoints, los modelos (DTOs) y para probar las peticiones directamente, se ha implementado la interfaz de **Swagger UI** (Springdoc-OpenAPI).
+
+### Acceso a Swagger UI
+
+Mientras el backend se esté ejecutando localmente, el desarrollador frontend puede acceder al siguiente enlace:
+
+**URL:** `http://localhost:8080/swagger-ui.html`
+
+### Beneficios
+
+* **Modelos Visuales:** Se pueden ver todos los campos definidos en cada DTO (Ej: `DiscoDTO`, `ArtistaDTO`).
+* **Pruebas en Vivo:** Permite probar cualquier `GET` directamente desde el navegador, verificando la conexión y el formato JSON en tiempo real.
+
+---
