@@ -126,6 +126,10 @@ Mientras el backend se esté ejecutando localmente, el desarrollador frontend pu
 
 **URL:** `http://localhost:8080/swagger-ui.html`
 
+**ACTUALIZACIÓN**
+La API ya está despegada en Railway, en caso de querer acceder a Swagger de todos modos, utilizar la siguiente URL
+**URL:**`https://backendproyectoblogdeartista-production.up.railway.app/swagger-ui.html`
+
 ### Beneficios
 
 * **Modelos Visuales:** Se pueden ver todos los campos definidos en cada DTO (Ej: `DiscoDTO`, `ArtistaDTO`).
