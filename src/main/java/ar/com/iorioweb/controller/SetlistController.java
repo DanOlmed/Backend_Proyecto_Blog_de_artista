@@ -55,7 +55,7 @@ public class SetlistController {
         setlist.add(new TrackSetListDto("Justo que te vas", "Ricardo Iorio", "Atesorando en los cielos",null));
         setlist.add(new TrackSetListDto("Sabe Don", "Ricardo Iorio", "Tangos y milongas",null));
         setlist.add(new TrackSetListDto("Orgullo argentino", "Almafuerte", "Piedra libre",null));
-        // Añade aquí los 26+ temas restantes de tu setlist.
+       
         
         // 2. Enriquecer los datos con la URL de Spotify (se hace la llamada a la API)
         for (TrackSetListDto track : setlist) {
