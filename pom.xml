@@ -6,8 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+		<relativePath/> </parent>
 	<groupId>ar.com.iorioweb</groupId>
 	<artifactId>IorioWeb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -28,7 +27,6 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -72,7 +70,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -87,23 +84,37 @@
 							<artifactId>lombok</artifactId>
 						</path>
 					</annotationProcessorPaths>
-					
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+            
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version> <configuration>
-                    <nonFilteredFileExtensions>
-                        <nonFilteredFileExtension>properties</nonFilteredFileExtension>
-                        <nonFilteredFileExtension>yml</nonFilteredFileExtension>
-                    </nonFilteredFileExtensions>
-                </configuration>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>default-resources</id>
+                        <configuration>
+                            <filtering>false</filtering> 
+                            <delimiters>
+                                <delimiter>@</delimiter> 
+                            </delimiters>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
-			
-		</plugins>
+            </plugins>
 	</build>
-	
-	
-
 </project>
