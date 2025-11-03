@@ -7,6 +7,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import java.util.Map;
+import java.net.URLEncoder; // Necesario para codificar la query
+import java.nio.charset.StandardCharsets; // Necesario para la codificación
 
 @Service
 public class SpotifyApiService {
@@ -25,14 +27,18 @@ public class SpotifyApiService {
         String token = authService.getAccessToken();
         if (token == null) return null;
 
-        // Construir la query de búsqueda: "nombre_cancion artist:nombre_artista"
-        String query = trackName + " artist:\"" + artistName + "\"";
+        // 1. CONSTRUCCIÓN DE LA QUERY: USAMOS UNA BÚSQUEDA MÁS AMPLIA Y SIMPLE
+        //    Ej: "Destrucción V8" (funciona mejor que 'Destrucción artist:"V8"')
+        String simpleQuery = trackName + " " + artistName;
         
-        // Construir la URL completa: /v1/search?q=query&type=track&limit=1
+        // Codificamos la query para URL (manejando espacios y caracteres especiales)
+        String encodedQuery = URLEncoder.encode(simpleQuery, StandardCharsets.UTF_8);
+        
+        // 2. CONSTRUIR LA URL
         String url = UriComponentsBuilder.fromHttpUrl(searchUrl)
-            .queryParam("q", query)
+            .queryParam("q", encodedQuery) // Usamos la query codificada
             .queryParam("type", "track")
-            .queryParam("limit", 1) // Solo el mejor resultado
+            .queryParam("limit", 1) 
             .toUriString();
         
         RestTemplate restTemplate = new RestTemplate();
@@ -45,7 +51,7 @@ public class SpotifyApiService {
             var response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);
             Map<String, Object> data = response.getBody();
 
-            // Navegar el JSON: tracks -> items[0] -> preview_url
+            // 3. NAVEGACIÓN DEL JSON
             if (data != null && data.containsKey("tracks")) {
                 Map<String, Object> tracks = (Map<String, Object>) data.get("tracks");
                 java.util.List<Map<String, Object>> items = (java.util.List<Map<String, Object>>) tracks.get("items");
@@ -55,8 +61,9 @@ public class SpotifyApiService {
                 }
             }
         } catch (Exception e) {
-            System.err.println("Error al buscar en Spotify: " + e.getMessage());
+            // Imprimir el error para debuggear en Railway
+            System.err.println("Error al buscar en Spotify para " + simpleQuery + ": " + e.getMessage());
         }
-        return null;
+        return null; // Devuelve null si no encuentra la URL
     }
 }
