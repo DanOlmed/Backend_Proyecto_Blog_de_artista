@@ -2,6 +2,8 @@ package ar.com.iorioweb.controller;
 
 import ar.com.iorioweb.dto.TrackSetListDto;
 import ar.com.iorioweb.service.spotify.SpotifyApiService;
+import ar.com.iorioweb.service.spotify.SpotifyAuthService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,18 @@ public class SetlistController {
 
     @Autowired
     private SpotifyApiService spotifyApiService;
+    @Autowired 
+    private SpotifyAuthService authService;
     
+    @GetMapping("/test-token")
+    public ResponseEntity<String> testToken() {
+        String token = authService.getAccessToken();
+        if (token != null) {
+            return ResponseEntity.ok("Token Obtenido: " + token.substring(0, 10) + "...");
+        } else {
+            return ResponseEntity.status(500).body("Error: Token es NULL");
+        }
+    }
     @GetMapping("/top30")
     public ResponseEntity<List<TrackSetListDto>> getTop30Setlist() {
         
