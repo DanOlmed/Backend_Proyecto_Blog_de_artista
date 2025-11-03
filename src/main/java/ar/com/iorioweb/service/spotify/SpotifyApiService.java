@@ -39,6 +39,7 @@ public class SpotifyApiService {
             .queryParam("q", encodedQuery) // Usamos la query codificada
             .queryParam("type", "track")
             .queryParam("limit", 1) 
+            .queryParam("market", "AR")
             .toUriString();
         
         RestTemplate restTemplate = new RestTemplate();
