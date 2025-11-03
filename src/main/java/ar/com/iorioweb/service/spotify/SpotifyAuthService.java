@@ -10,9 +10,9 @@ import java.util.Map;
 @Service
 public class SpotifyAuthService {
 
-    @Value("${spotify.client.id}")
+	@Value("${SPOTIFY_CLIENT_ID}")
     private String clientId;
-    @Value("${spotify.client.secret}")
+	@Value("${SPOTIFY_CLIENT_SECRET}")
     private String clientSecret;
     @Value("${spotify.auth.url}")
     private String authUrl;
