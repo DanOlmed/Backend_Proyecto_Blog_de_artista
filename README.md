@@ -136,3 +136,18 @@ La API ya está despegada en Railway, en caso de querer acceder a Swagger de tod
 * **Pruebas en Vivo:** Permite probar cualquier `GET` directamente desde el navegador, verificando la conexión y el formato JSON en tiempo real.
 
 ---
+---
+
+## 🏛️ 5. Decisiones de Arquitectura (ADR)
+
+Para asegurar la claridad y trazabilidad de las decisiones de diseño del backend, se han documentado los siguientes Registros de Decisiones de Arquitectura (ADR).
+
+| ID | Título | Área | Estado | Archivo |
+| :--- | :--- | :--- | :--- | :--- |
+| **ADR 001** | [Uso del Patrón DTO en la Capa REST](#adr-001-uso-de-objetos-de-transferencia-de-datos) | Datos / API | ACEPTADO | [ADR 001](docs/adr-001-uso-de-objetos-de-transferencia-de-datos.md) |
+| **ADR 002** | [Configuración de Conexión a DB en Railway](#adr-002-configuración-de-conexión-a-base-de-datos-en-railway) | Despliegue | ACEPTADO | [ADR 002](docs/adr-002-configuración-de-conexión-a-base-de-datos-en-railway.md) |
+| **ADR 003** | [Uso del hostname como variable interna](#adr-003-uso-del-hostname-interno-para-conexión) | Despliegue | ACEPTADO | [ADR 003](docs/adr-003-uso-del-hostname-interno-para-conexión.md) |
+| **ADR 004** | [Restricción de Memoria de la JVM en Railway](adr-004-limitación-de-memoria-de-la-JVM) | Servicios | ACEPTADO | [ADR 004](docs/adr-004-limitación-de-memoria-de-la-JVM.md) |
+| **ADR 005** | [Habilitación de CORS para cualquier dominio](adr-005-habilitación-de-Cors) | Seguridad | ACEPTADO | [ADR 005](docs/adr-005-habilitacion-de-CORS.md) |
+
+---
